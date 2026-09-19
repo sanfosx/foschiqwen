@@ -13,6 +13,8 @@ import FinalCTA from './components/FinalCTA'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import DatabaseSetup from './components/DatabaseSetup'
+import DatabaseInitializer from './components/DatabaseInitializer'
 
 function App() {
   return (
@@ -30,8 +32,10 @@ function App() {
       <FAQ />
       <FinalCTA />
       <Contact />
+      <DatabaseSetup />
       <Footer />
       <WhatsAppButton />
+      <DatabaseInitializer />
     </div>
   )
 }

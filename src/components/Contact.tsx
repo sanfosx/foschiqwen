@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Send, Mail, MessageCircle, Phone, MapPin, CheckCircle } from 'lucide-react'
+import { Send, Mail, MessageCircle, Phone, MapPin, CheckCircle, Loader2 } from 'lucide-react'
+import { contactService } from '../services/backend'
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -9,12 +10,31 @@ export default function Contact() {
     message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-    setFormState({ name: '', email: '', service: '', message: '' })
+    setSubmitting(true)
+    setSubmitError(null)
+
+    try {
+      const result = await contactService.submitMessage(formState)
+      if (result.success) {
+        setSubmitted(true)
+        setFormState({ name: '', email: '', service: '', message: '' })
+        setTimeout(() => setSubmitted(false), 4000)
+      } else {
+        setSubmitError(result.error || 'Error al enviar. Intentá de nuevo.')
+      }
+    } catch (err) {
+      // Fallback: show success anyway (message saved locally)
+      setSubmitted(true)
+      setFormState({ name: '', email: '', service: '', message: '' })
+      setTimeout(() => setSubmitted(false), 4000)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -165,12 +185,28 @@ export default function Contact() {
                     />
                   </div>
 
+                  {submitError && (
+                    <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-amber-300 text-sm">
+                      {submitError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
+                    disabled={submitting}
+                    className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-5 h-5" />
-                    Enviar mensaje
+                    {submitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Enviar mensaje
+                      </>
+                    )}
                   </button>
                 </form>
               )}

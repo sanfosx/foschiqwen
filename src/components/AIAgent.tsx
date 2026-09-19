@@ -9,6 +9,7 @@ import {
   getGeminiApiKey,
   getGroqApiKey,
 } from '../services/aiService'
+import { aiGenerationService } from '../services/backend'
 import ApiConfig from './ApiConfig'
 
 interface GeneratedArticle {
@@ -98,8 +99,39 @@ export default function AIAgent() {
         timestamp: new Date(),
         topic,
       })
+
+      // Log generation to database
+      try {
+        await aiGenerationService.logGeneration({
+          topic,
+          category,
+          title,
+          content,
+          ai_provider: selectedProvider,
+          model_used: selectedProvider === 'gemini' ? 'gemini-3.6-flash' : 'groq/compound',
+          status: 'completed',
+        })
+      } catch (logErr) {
+        // Silent fail for logging
+        console.warn('Could not log generation to database:', logErr)
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error al generar contenido')
+      
+      // Log error to database
+      try {
+        await aiGenerationService.logGeneration({
+          topic,
+          category,
+          content: '',
+          ai_provider: selectedProvider,
+          model_used: selectedProvider === 'gemini' ? 'gemini-3.6-flash' : 'groq/compound',
+          status: 'error',
+          error_message: err instanceof Error ? err.message : 'Unknown error',
+        })
+      } catch (logErr) {
+        // Silent fail
+      }
     } finally {
       setIsGenerating(false)
     }
