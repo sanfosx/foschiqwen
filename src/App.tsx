@@ -4,6 +4,8 @@ import Services from './components/Services'
 import About from './components/About'
 import Process from './components/Process'
 import Technologies from './components/Technologies'
+import AIAgent from './components/AIAgent'
+import Blog from './components/Blog'
 import Testimonials from './components/Testimonials'
 import Plans from './components/Plans'
 import FAQ from './components/FAQ'
@@ -21,6 +23,8 @@ function App() {
       <About />
       <Process />
       <Technologies />
+      <AIAgent />
+      <Blog />
       <Testimonials />
       <Plans />
       <FAQ />

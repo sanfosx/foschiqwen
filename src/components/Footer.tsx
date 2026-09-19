@@ -43,6 +43,7 @@ export default function Footer() {
               {[
                 { name: 'Inicio', href: '#inicio' },
                 { name: 'Servicios', href: '#servicios' },
+                { name: 'Blog IA', href: '#ai-agent' },
                 { name: 'Planes', href: '#planes' },
                 { name: 'Sobre Mí', href: '#sobre-mi' },
                 { name: 'Proceso', href: '#proceso' },
