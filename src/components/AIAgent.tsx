@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Bot, Sparkles, Loader2, CheckCircle, Zap, Brain, FileText, RefreshCw, Settings, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
+import { useState } from 'react'
+import { Bot, Sparkles, Loader2, CheckCircle, Zap, Brain, FileText, Settings, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react'
 import {
   AIProvider,
   AIProviderStatus,
@@ -7,7 +7,7 @@ import {
   getBlogGenerationPrompt,
   BLOG_SYSTEM_PROMPT,
   getGeminiApiKey,
-  getGrokApiKey,
+  getGroqApiKey,
 } from '../services/aiService'
 import ApiConfig from './ApiConfig'
 
@@ -44,7 +44,7 @@ export default function AIAgent() {
     'Cómo un chatbot con IA puede aumentar tus ventas',
     '5 automatizaciones esenciales para tu negocio',
     'Guía para crear tu primera tienda online',
-    'Cómo usar ChatGPT en tu emprendimiento',
+    'Cómo usar IA en tu emprendimiento',
     'Agentes IA para atención al cliente',
     'Tendencias tecnológicas para pequeños negocios',
   ]
@@ -52,7 +52,7 @@ export default function AIAgent() {
   // Check if provider has API key
   const hasApiKey = (provider: AIProvider): boolean => {
     if (provider === 'gemini') return !!getGeminiApiKey()
-    return !!getGrokApiKey()
+    return !!getGroqApiKey()
   }
 
   // Check if provider is available
@@ -68,7 +68,7 @@ export default function AIAgent() {
     }
 
     if (!hasApiKey(selectedProvider)) {
-      setError(`Necesitás configurar la API Key de ${selectedProvider === 'gemini' ? 'Gemini' : 'Grok'} primero`)
+      setError(`Necesitás configurar la API Key de ${selectedProvider === 'gemini' ? 'Gemini' : 'Groq'} primero`)
       setShowConfig(true)
       return
     }
@@ -123,7 +123,7 @@ export default function AIAgent() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Generá contenido con{' '}
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Gemini o Grok
+              Gemini o Groq
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -152,17 +152,17 @@ export default function AIAgent() {
                   )}
                 </button>
                 <button
-                  onClick={() => setSelectedProvider('grok')}
+                  onClick={() => setSelectedProvider('groq')}
                   className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl border transition-all ${
-                    selectedProvider === 'grok'
-                      ? 'bg-purple-500/10 border-purple-500/40 text-purple-300'
+                    selectedProvider === 'groq'
+                      ? 'bg-orange-500/10 border-orange-500/40 text-orange-300'
                       : 'bg-gray-800/50 border-gray-700 text-gray-400 hover:border-gray-600'
                   }`}
                 >
-                  <span className="text-lg">✖️</span>
-                  <span className="font-medium text-sm">Grok</span>
-                  {hasApiKey('grok') && (
-                    <span className={`w-2 h-2 rounded-full ${isProviderAvailable('grok') ? 'bg-green-400' : 'bg-yellow-400'}`} />
+                  <span className="text-lg">⚡</span>
+                  <span className="font-medium text-sm">Groq</span>
+                  {hasApiKey('groq') && (
+                    <span className={`w-2 h-2 rounded-full ${isProviderAvailable('groq') ? 'bg-green-400' : 'bg-yellow-400'}`} />
                   )}
                 </button>
               </div>
@@ -196,7 +196,7 @@ export default function AIAgent() {
                   <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${
                     selectedProvider === 'gemini'
                       ? 'bg-gradient-to-br from-blue-500 to-cyan-600'
-                      : 'bg-gradient-to-br from-purple-500 to-pink-600'
+                      : 'bg-gradient-to-br from-orange-500 to-red-600'
                   }`}>
                     <Bot className="w-7 h-7 text-white" />
                   </div>
@@ -207,10 +207,10 @@ export default function AIAgent() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">
-                    {selectedProvider === 'gemini' ? 'Gemini Agent' : 'Grok Agent'}
+                    {selectedProvider === 'gemini' ? 'Gemini Agent' : 'Groq Agent'}
                   </h3>
                   <p className="text-sm text-gray-400">
-                    {selectedProvider === 'gemini' ? 'Google Gemini 2.0 Flash' : 'xAI Grok 2 Latest'}
+                    {selectedProvider === 'gemini' ? 'Google Gemini 3.6 Flash' : 'Groq Compound (Ultra-fast)'}
                   </p>
                 </div>
               </div>
@@ -279,7 +279,7 @@ export default function AIAgent() {
                   ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
                   : selectedProvider === 'gemini'
                   ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white hover:shadow-lg hover:shadow-blue-500/25 hover:scale-[1.02]'
-                  : 'bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/25 hover:scale-[1.02]'
+                  : 'bg-gradient-to-r from-orange-500 to-red-600 text-white hover:shadow-lg hover:shadow-orange-500/25 hover:scale-[1.02]'
               }`}
             >
               {isGenerating ? (
@@ -295,7 +295,7 @@ export default function AIAgent() {
               ) : (
                 <>
                   <Sparkles className="w-5 h-5" />
-                  Generar Artículo con {selectedProvider === 'gemini' ? 'Gemini' : 'Grok'}
+                  Generar Artículo con {selectedProvider === 'gemini' ? 'Gemini' : 'Groq'}
                 </>
               )}
             </button>
@@ -313,7 +313,7 @@ export default function AIAgent() {
           {isGenerating && (
             <div className="px-6 pb-6">
               <div className="p-4 bg-gray-800/30 rounded-xl border border-gray-700 space-y-3">
-                <p className="text-sm text-gray-400 font-medium">Procesando con {selectedProvider === 'gemini' ? 'Gemini' : 'Grok'}:</p>
+                <p className="text-sm text-gray-400 font-medium">Procesando con {selectedProvider === 'gemini' ? 'Gemini 3.6 Flash' : 'Groq Compound'}:</p>
                 {[
                   { icon: Brain, text: 'Analizando tema y contexto...' },
                   { icon: FileText, text: 'Generando contenido del artículo...' },
@@ -337,7 +337,7 @@ export default function AIAgent() {
                 <CheckCircle className="w-5 h-5 text-green-400" />
                 <span className="text-green-400 font-medium text-sm">¡Artículo generado exitosamente!</span>
                 <span className="text-xs text-gray-500 ml-auto">
-                  por {generatedArticle.provider === 'gemini' ? '🔷 Gemini' : '✖️ Grok'} •{' '}
+                  por {generatedArticle.provider === 'gemini' ? '🔷 Gemini' : '⚡ Groq'} •{' '}
                   {generatedArticle.timestamp.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}
                 </span>
               </div>
@@ -378,7 +378,7 @@ export default function AIAgent() {
                   🔷 Google Gemini API
                 </h4>
                 <ul className="space-y-2 text-sm text-gray-400">
-                  <li>• Modelo: gemini-2.0-flash</li>
+                  <li>• Modelo: gemini-3.6-flash</li>
                   <li>• API Key gratuita en Google AI Studio</li>
                   <li>• Excelente para contenido creativo</li>
                   <li>• Soporta contexto largo</li>
@@ -387,14 +387,14 @@ export default function AIAgent() {
               </div>
               <div>
                 <h4 className="text-white font-bold mb-3 flex items-center gap-2">
-                  ✖️ xAI Grok API
+                  ⚡ Groq API
                 </h4>
                 <ul className="space-y-2 text-sm text-gray-400">
-                  <li>• Modelo: grok-2-latest</li>
-                  <li>• API Key en console.x.ai</li>
+                  <li>• Modelo: groq/compound</li>
+                  <li>• API Key gratuita en console.groq.com</li>
+                  <li>• Inferencia ultra-rápida (LPU)</li>
+                  <li>• Excelente para razonamiento</li>
                   <li>• Compatible con formato OpenAI</li>
-                  <li>• Excelente razonamiento</li>
-                  <li>• Acceso a información actualizada</li>
                 </ul>
               </div>
             </div>

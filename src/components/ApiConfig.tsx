@@ -4,13 +4,13 @@ import {
   AIProvider,
   AIProviderStatus,
   getGeminiApiKey,
-  getGrokApiKey,
+  getGroqApiKey,
   setGeminiApiKey,
-  setGrokApiKey,
+  setGroqApiKey,
   removeGeminiApiKey,
-  removeGrokApiKey,
+  removeGroqApiKey,
   checkGeminiAvailability,
-  checkGrokAvailability,
+  checkGroqAvailability,
 } from '../services/aiService'
 
 interface ApiConfigProps {
@@ -19,9 +19,9 @@ interface ApiConfigProps {
 
 export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
   const [geminiKey, setGeminiKey] = useState(getGeminiApiKey())
-  const [grokKey, setGrokKey] = useState(getGrokApiKey())
+  const [groqKey, setGroqKey] = useState(getGroqApiKey())
   const [showGeminiKey, setShowGeminiKey] = useState(false)
-  const [showGrokKey, setShowGrokKey] = useState(false)
+  const [showGroqKey, setShowGroqKey] = useState(false)
   const [checking, setChecking] = useState(false)
   const [statuses, setStatuses] = useState<AIProviderStatus[]>([
     {
@@ -31,25 +31,25 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
       apiKeyConfigured: !!getGeminiApiKey(),
       lastChecked: null,
       error: null,
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.6-flash',
     },
     {
-      provider: 'grok',
-      name: 'xAI Grok',
+      provider: 'groq',
+      name: 'Groq',
       available: false,
-      apiKeyConfigured: !!getGrokApiKey(),
+      apiKeyConfigured: !!getGroqApiKey(),
       lastChecked: null,
       error: null,
-      model: 'grok-2-latest',
+      model: 'groq/compound',
     },
   ])
 
   const checkAllApis = async () => {
     setChecking(true)
     
-    const [geminiResult, grokResult] = await Promise.all([
+    const [geminiResult, groqResult] = await Promise.all([
       checkGeminiAvailability(),
-      checkGrokAvailability(),
+      checkGroqAvailability(),
     ])
 
     const newStatuses: AIProviderStatus[] = [
@@ -60,16 +60,16 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
         apiKeyConfigured: !!geminiKey,
         lastChecked: new Date(),
         error: geminiResult.error,
-        model: 'gemini-2.0-flash',
+        model: 'gemini-3.6-flash',
       },
       {
-        provider: 'grok',
-        name: 'xAI Grok',
-        available: grokResult.available,
-        apiKeyConfigured: !!grokKey,
+        provider: 'groq',
+        name: 'Groq',
+        available: groqResult.available,
+        apiKeyConfigured: !!groqKey,
         lastChecked: new Date(),
-        error: grokResult.error,
-        model: 'grok-2-latest',
+        error: groqResult.error,
+        model: 'groq/compound',
       },
     ]
 
@@ -79,7 +79,7 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
   }
 
   useEffect(() => {
-    if (geminiKey || grokKey) {
+    if (geminiKey || groqKey) {
       checkAllApis()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,9 +91,9 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
     checkAllApis()
   }
 
-  const handleSaveGrokKey = () => {
-    setGrokApiKey(grokKey)
-    setStatuses(prev => prev.map(s => s.provider === 'grok' ? { ...s, apiKeyConfigured: !!grokKey } : s))
+  const handleSaveGroqKey = () => {
+    setGroqApiKey(groqKey)
+    setStatuses(prev => prev.map(s => s.provider === 'groq' ? { ...s, apiKeyConfigured: !!groqKey } : s))
     checkAllApis()
   }
 
@@ -103,10 +103,10 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
     setStatuses(prev => prev.map(s => s.provider === 'gemini' ? { ...s, apiKeyConfigured: false, available: false, error: 'API Key eliminada' } : s))
   }
 
-  const handleDeleteGrokKey = () => {
-    removeGrokApiKey()
-    setGrokKey('')
-    setStatuses(prev => prev.map(s => s.provider === 'grok' ? { ...s, apiKeyConfigured: false, available: false, error: 'API Key eliminada' } : s))
+  const handleDeleteGroqKey = () => {
+    removeGroqApiKey()
+    setGroqKey('')
+    setStatuses(prev => prev.map(s => s.provider === 'groq' ? { ...s, apiKeyConfigured: false, available: false, error: 'API Key eliminada' } : s))
   }
 
   return (
@@ -195,15 +195,15 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
           </div>
         </div>
 
-        {/* Grok Config */}
+        {/* Groq Config */}
         <div className="p-4 bg-gray-800/30 border border-gray-700 rounded-xl">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-purple-500/10 rounded-lg flex items-center justify-center text-lg">
-                ✖️
+              <div className="w-8 h-8 bg-orange-500/10 rounded-lg flex items-center justify-center text-lg">
+                ⚡
               </div>
               <div>
-                <p className="text-white font-semibold text-sm">xAI Grok</p>
+                <p className="text-white font-semibold text-sm">Groq</p>
                 <p className="text-gray-500 text-xs">{statuses[1].model}</p>
               </div>
             </div>
@@ -213,30 +213,30 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
           <div className="space-y-3">
             <div className="relative">
               <input
-                type={showGrokKey ? 'text' : 'password'}
-                value={grokKey}
-                onChange={(e) => setGrokKey(e.target.value)}
-                placeholder="xai-..."
-                className="w-full px-3 py-2 pr-10 bg-gray-900/50 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-600 focus:outline-none focus:border-purple-500/50"
+                type={showGroqKey ? 'text' : 'password'}
+                value={groqKey}
+                onChange={(e) => setGroqKey(e.target.value)}
+                placeholder="gsk_..."
+                className="w-full px-3 py-2 pr-10 bg-gray-900/50 border border-gray-700 rounded-lg text-sm text-white placeholder-gray-600 focus:outline-none focus:border-orange-500/50"
               />
               <button
-                onClick={() => setShowGrokKey(!showGrokKey)}
+                onClick={() => setShowGroqKey(!showGroqKey)}
                 className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300"
               >
-                {showGrokKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                {showGroqKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
             <div className="flex gap-2">
               <button
-                onClick={handleSaveGrokKey}
-                disabled={!grokKey}
-                className="flex-1 px-3 py-1.5 bg-purple-600/20 border border-purple-500/30 rounded-lg text-xs text-purple-300 hover:bg-purple-600/30 transition-all disabled:opacity-50"
+                onClick={handleSaveGroqKey}
+                disabled={!groqKey}
+                className="flex-1 px-3 py-1.5 bg-orange-600/20 border border-orange-500/30 rounded-lg text-xs text-orange-300 hover:bg-orange-600/30 transition-all disabled:opacity-50"
               >
                 Guardar
               </button>
-              {grokKey && (
+              {groqKey && (
                 <button
-                  onClick={handleDeleteGrokKey}
+                  onClick={handleDeleteGroqKey}
                   className="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-xs text-red-400 hover:bg-red-500/20 transition-all"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -244,13 +244,13 @@ export default function ApiConfig({ onStatusChange }: ApiConfigProps) {
               )}
             </div>
             <a
-              href="https://console.x.ai/"
+              href="https://console.groq.com/keys"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-xs text-gray-500 hover:text-purple-400 transition-colors"
+              className="flex items-center gap-1 text-xs text-gray-500 hover:text-orange-400 transition-colors"
             >
               <ExternalLink className="w-3 h-3" />
-              Obtener API Key en xAI Console
+              Obtener API Key gratis en Groq Console
             </a>
             {statuses[1].error && (
               <p className="text-xs text-red-400/80">{statuses[1].error}</p>
