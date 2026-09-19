@@ -4,8 +4,13 @@ import Services from './components/Services'
 import About from './components/About'
 import Process from './components/Process'
 import Technologies from './components/Technologies'
+import Testimonials from './components/Testimonials'
+import Plans from './components/Plans'
+import FAQ from './components/FAQ'
+import FinalCTA from './components/FinalCTA'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   return (
@@ -16,8 +21,13 @@ function App() {
       <About />
       <Process />
       <Technologies />
+      <Testimonials />
+      <Plans />
+      <FAQ />
+      <FinalCTA />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   )
 }
