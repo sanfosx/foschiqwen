@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Loader2, CheckCircle, XCircle, Database } from 'lucide-react'
-import { INSFORGE_BASE_URL, INSFORGE_ADMIN_KEY } from '../services/insforge'
+import { INSFORGE_BASE_URL, INSFORGE_ADMIN_KEY, INSFORGE_PROJECT_ID } from '../services/insforge'
 
 const SCHEMA_SQL = `
 -- Enable UUID extension

@@ -4,6 +4,8 @@
 [project]
 id = "b52410db-f5e7-4809-b433-53cb0c93da09"
 name = "TechBridge"
+app_key = "uagk9992"
+region = "us-east"
 
 [deployment]
 framework = "vite"
@@ -12,7 +14,7 @@ output_directory = "dist"
 root_directory = "."
 
 [deployment.env]
-VITE_INSFORGE_URL = "https://b52410db-f5e7-4809-b433-53cb0c93da09.insforge.app"
+VITE_INSFORGE_URL = "https://uagk9992.us-east.insforge.app"
 VITE_INSFORGE_ANON_KEY = "uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU"
 
 [database]
