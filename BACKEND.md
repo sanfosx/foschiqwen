@@ -16,7 +16,9 @@ PostgreSQL Database
 
 ### Project Details
 - **Project ID:** `b52410db-f5e7-4809-b433-53cb0c93da09`
-- **Base URL:** `https://b52410db-f5e7-4809-b433-53cb0c93da09.insforge.app`
+- **App Key:** `uagk9992`
+- **Region:** `us-east`
+- **Base URL:** `https://uagk9992.us-east.insforge.app`
 - **Database:** PostgreSQL en `uagk9992.us-east.database.insforge.app:5432`
 
 ### Instalación

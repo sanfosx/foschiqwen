@@ -18,7 +18,10 @@ NC='\033[0m' # No Color
 
 # Variables
 PROJECT_ID="b52410db-f5e7-4809-b433-53cb0c93da09"
+APP_KEY="uagk9992"
+REGION="us-east"
 API_KEY="uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU"
+INSFORGE_URL="https://${APP_KEY}.${REGION}.insforge.app"
 
 # Paso 1: Verificar que el CLI de InsForge esté instalado
 echo -e "${BLUE}📦 Paso 1: Verificando InsForge CLI...${NC}"
@@ -41,7 +44,7 @@ echo ""
 
 # Paso 4: Configurar variables de entorno
 echo -e "${BLUE}⚙️  Paso 4: Configurando variables de entorno...${NC}"
-npx @insforge/cli deployments env set VITE_INSFORGE_URL "https://$PROJECT_ID.insforge.app"
+npx @insforge/cli deployments env set VITE_INSFORGE_URL "$INSFORGE_URL"
 npx @insforge/cli deployments env set VITE_INSFORGE_ANON_KEY "$API_KEY"
 echo -e "${GREEN}✅ Variables configuradas${NC}"
 echo ""
@@ -68,7 +71,7 @@ echo -e "${GREEN}✅ Deploy completado exitosamente!${NC}"
 echo -e "${GREEN}==================================${NC}"
 echo ""
 echo -e "${BLUE}🌐 Tu aplicación estará disponible en:${NC}"
-echo -e "   ${YELLOW}https://$PROJECT_ID.insforge.site${NC}"
+echo -e "   ${YELLOW}https://$APP_KEY.$REGION.insforge.site${NC}"
 echo ""
 echo -e "${BLUE}📝 Próximos pasos:${NC}"
 echo "   1. Verifica el estado del deploy: npx @insforge/cli deployments list"

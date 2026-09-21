@@ -9,7 +9,7 @@
  * Usage: node scripts/init-database.js
  */
 
-const INSFORGE_URL = 'https://b52410db-f5e7-4809-b433-53cb0c93da09.insforge.app'
+const INSFORGE_URL = 'https://uagk9992.us-east.insforge.app'
 const ADMIN_KEY = 'uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU'
 
 const SCHEMA_SQL = `
