@@ -95,7 +95,7 @@ Se han corregido las URLs en los siguientes archivos:
 | **Admin API** | `https://uagk9992.us-east.insforge.app/admin/v1` |
 | **Database** | `postgresql://postgres:***@uagk9992.us-east.database.insforge.app:5432/insforge` |
 | **Dashboard** | `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09` |
-| **App Deploy** | `https://uagk9992.us-east.insforge.site` |
+| **App Deploy** | `https://uagk9992.insforge.site` |
 
 ## 🎯 Formato de URLs en InsForge
 
@@ -121,6 +121,36 @@ Para verificar que la conexión funciona correctamente:
 1. Abre en el navegador: `https://uagk9992.us-east.insforge.app/health`
 2. Deberías recibir una respuesta JSON del servidor
 3. Si ves `ERR_NAME_NOT_RESOLVED`, verifica que el app_key y region sean correctos
+
+## 📌 Diferencia entre URLs de API y Sitio Desplegado
+
+Es importante entender que InsForge usa dos formatos de URL diferentes:
+
+### URLs de API (Backend)
+```
+https://{app_key}.{region}.insforge.app
+```
+Ejemplo: `https://uagk9992.us-east.insforge.app`
+
+Se usa para:
+- REST API (`/rest/v1/...`)
+- Admin API (`/admin/v1/...`)
+- Base de datos
+- Autenticación
+- Storage
+
+### URLs de Sitio Desplegado (Frontend)
+```
+https://{app_key}.insforge.site
+```
+Ejemplo: `https://uagk9992.insforge.site`
+
+Se usa para:
+- Aplicación web desplegada
+- Sitios estáticos
+- Frontend de la aplicación
+
+**Nota:** Las URLs del sitio desplegado NO incluyen la región.
 
 ## 🔗 Recursos
 

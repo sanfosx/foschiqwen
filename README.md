@@ -201,7 +201,7 @@ npx @insforge/cli deployments deploy .
 
 ### URLs Post-Deploy
 
-- **Aplicación**: `https://uagk9992.us-east.insforge.site`
+- **Aplicación**: `https://uagk9992.insforge.site`
 - **Dashboard**: `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09`
 
 ---

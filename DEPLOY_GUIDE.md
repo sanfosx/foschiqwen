@@ -75,7 +75,7 @@ npx @insforge/cli deployments list
 
 Después del deploy, tu aplicación estará disponible en:
 
-- **URL Principal**: `https://uagk9992.us-east.insforge.site`
+- **URL Principal**: `https://uagk9992.insforge.site`
 - **Dashboard**: `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09`
 
 ## 🔧 Configuración Adicional
