@@ -90,9 +90,9 @@ Se han corregido las URLs en los siguientes archivos:
 
 | Recurso | URL |
 |---------|-----|
-| **API Base** | `https://uagk9992.insforge.app` |
-| **REST API** | `https://uagk9992.insforge.app/rest/v1` |
-| **Admin API** | `https://uagk9992.insforge.app/admin/v1` |
+| **API Base** | `https://api.uagk9992.insforge.app` |
+| **REST API** | `https://api.uagk9992.insforge.app/rest/v1` |
+| **Admin API** | `https://api.uagk9992.insforge.app/admin/v1` |
 | **Database** | `postgresql://postgres:***@uagk9992.us-east.database.insforge.app:5432/insforge` |
 | **Dashboard** | `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09` |
 | **App Deploy** | `https://uagk9992.insforge.site` |
@@ -101,17 +101,17 @@ Se han corregido las URLs en los siguientes archivos:
 
 Para verificar que la conexión funciona correctamente:
 
-1. Abre en el navegador: `https://uagk9992.insforge.app/health`
+1. Abre en el navegador: `https://api.uagk9992.insforge.app/health`
 2. Deberías recibir una respuesta JSON del servidor
-3. Si ves `ERR_NAME_NOT_RESOLVED`, verifica que el app_key sea correcto
+3. Si ves `ERR_NAME_NOT_RESOLVED` o `404`, prueba con diferentes formatos de URL
 
 ## 📌 Formato de URLs en InsForge
 
 ### URLs de API (Backend)
 ```
-https://{app_key}.insforge.app
+https://api.{app_key}.insforge.app
 ```
-Ejemplo: `https://uagk9992.insforge.app`
+Ejemplo: `https://api.uagk9992.insforge.app`
 
 Se usa para:
 - REST API (`/rest/v1/...`)

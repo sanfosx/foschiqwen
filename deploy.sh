@@ -21,7 +21,7 @@ PROJECT_ID="b52410db-f5e7-4809-b433-53cb0c93da09"
 APP_KEY="uagk9992"
 REGION="us-east"
 API_KEY="uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU"
-INSFORGE_URL="https://${APP_KEY}.insforge.app"
+INSFORGE_URL="https://api.${APP_KEY}.insforge.app"
 
 # Paso 1: Verificar que el CLI de InsForge esté instalado
 echo -e "${BLUE}📦 Paso 1: Verificando InsForge CLI...${NC}"

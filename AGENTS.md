@@ -13,7 +13,7 @@ This is a TechBridge application deployed on InsForge. The project uses:
 ### Database
 - **Provider**: PostgreSQL via InsForge
 - **Connection**: `postgresql://postgres:***@uagk9992.us-east.database.insforge.app:5432/insforge?sslmode=require`
-- **REST API**: `https://uagk9992.insforge.app/rest/v1`
+- **REST API**: `https://api.uagk9992.insforge.app/rest/v1`
 - **Admin Key**: `uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU`
 - **App Key**: `uagk9992`
 - **Region**: `us-east`
