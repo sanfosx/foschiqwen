@@ -18,8 +18,11 @@ const path = require('path')
 const PROJECT_ID = 'b52410db-f5e7-4809-b433-53cb0c93da09'
 const APP_KEY = 'uagk9992'
 const REGION = 'us-east'
-const API_KEY = 'uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU'
-const INSFORGE_URL = `https://api.${APP_KEY}.insforge.app`
+const API_KEY = 'ik_fae6dd2d7b6ebc86d421ef50e499969b'
+const ANON_KEY = 'anon_7fc28fe2db8b48d19e385ae3639ac4436ba8901b5ce000e9f1b3682d3b0344ad'
+const INSFORGE_URL = `https://${APP_KEY}.${REGION}.insforge.app`
+const SITE_URL = `https://${APP_KEY}.insforge.site`
+const DASHBOARD_URL = `https://insforge.dev/dashboard/project/${PROJECT_ID}`
 
 console.log('🚀 TechBridge - Complete Deploy Script')
 console.log('======================================')
@@ -96,8 +99,8 @@ console.log('✅ Deploy complete!')
 console.log('======================================')
 console.log('')
 console.log('🌐 Your application URLs:')
-console.log(`   Main: https://${APP_KEY}.insforge.site`)
-console.log(`   Dashboard: https://app.insforge.dev/project/${PROJECT_ID}`)
+console.log(`   Main: ${SITE_URL}`)
+console.log(`   Dashboard: ${DASHBOARD_URL}`)
 console.log('')
 console.log('📝 Next steps:')
 console.log('   1. Check the deployment status in the InsForge dashboard')

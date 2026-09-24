@@ -7,14 +7,16 @@
  */
 
 const APP_KEY = 'uagk9992'
-const ADMIN_KEY = 'uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU'
+const REGION = 'us-east'
+const API_KEY = 'ik_fae6dd2d7b6ebc86d421ef50e499969b'
+const ANON_KEY = 'anon_7fc28fe2db8b48d19e385ae3639ac4436ba8901b5ce000e9f1b3682d3b0344ad'
 
 // Posibles formatos de URL
 const possibleUrls = [
+  `https://${APP_KEY}.${REGION}.insforge.app`,
   `https://${APP_KEY}.insforge.app`,
   `https://api.${APP_KEY}.insforge.app`,
-  `https://${APP_KEY}.us-east.insforge.app`,
-  `https://api.${APP_KEY}.us-east.insforge.app`,
+  `https://api.${APP_KEY}.${REGION}.insforge.app`,
   `https://${APP_KEY}.api.insforge.app`,
   `https://rest.${APP_KEY}.insforge.app`,
 ]
@@ -26,8 +28,8 @@ async function testUrl(url) {
     const response = await fetch(`${url}/rest/v1/blog_articles?select=id&limit=1`, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${ADMIN_KEY}`,
-        'apikey': ADMIN_KEY,
+        'Authorization': `Bearer ${API_KEY}`,
+        'apikey': API_KEY,
         'Content-Type': 'application/json',
       },
     })

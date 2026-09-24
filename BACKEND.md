@@ -18,8 +18,12 @@ PostgreSQL Database
 - **Project ID:** `b52410db-f5e7-4809-b433-53cb0c93da09`
 - **App Key:** `uagk9992`
 - **Region:** `us-east`
-- **Base URL:** `https://api.uagk9992.insforge.app`
+- **Base URL:** `https://uagk9992.us-east.insforge.app`
+- **Site URL:** `https://uagk9992.insforge.site`
+- **Dashboard:** `https://insforge.dev/dashboard/project/b52410db-f5e7-4809-b433-53cb0c93da09`
 - **Database:** PostgreSQL en `uagk9992.us-east.database.insforge.app:5432`
+- **API Key:** `ik_fae6dd2d7b6ebc86d421ef50e499969b`
+- **Anon Key:** `anon_7fc28fe2db8b48d19e385ae3639ac4436ba8901b5ce000e9f1b3682d3b0344ad`
 
 ### Instalación
 

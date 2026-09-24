@@ -1,4 +1,4 @@
-import { INSFORGE_BASE_URL, INSFORGE_ADMIN_KEY } from './insforge'
+import { INSFORGE_BASE_URL, INSFORGE_API_KEY } from './insforge'
 
 // ============================================
 // InsForge REST API Client (PostgREST-compatible)
@@ -56,8 +56,8 @@ async function request<T>(
 
     const headers: Record<string, string> = {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${INSFORGE_ADMIN_KEY}`,
-      'apikey': INSFORGE_ADMIN_KEY,
+      'Authorization': `Bearer ${INSFORGE_API_KEY}`,
+      'apikey': INSFORGE_API_KEY,
     }
 
     if (params?.single) {
@@ -180,8 +180,8 @@ export const db = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${INSFORGE_ADMIN_KEY}`,
-          'apikey': INSFORGE_ADMIN_KEY,
+          'Authorization': `Bearer ${INSFORGE_API_KEY}`,
+          'apikey': INSFORGE_API_KEY,
         },
         body: JSON.stringify(params || {}),
       })
@@ -206,8 +206,8 @@ export const db = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${INSFORGE_ADMIN_KEY}`,
-          'apikey': INSFORGE_ADMIN_KEY,
+          'Authorization': `Bearer ${INSFORGE_API_KEY}`,
+          'apikey': INSFORGE_API_KEY,
         },
         body: JSON.stringify({ query }),
       })

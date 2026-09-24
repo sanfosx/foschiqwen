@@ -90,18 +90,20 @@ Se han corregido las URLs en los siguientes archivos:
 
 | Recurso | URL |
 |---------|-----|
-| **API Base** | `https://api.uagk9992.insforge.app` |
-| **REST API** | `https://api.uagk9992.insforge.app/rest/v1` |
-| **Admin API** | `https://api.uagk9992.insforge.app/admin/v1` |
+| **API Base** | `https://uagk9992.us-east.insforge.app` |
+| **REST API** | `https://uagk9992.us-east.insforge.app/rest/v1` |
+| **Admin API** | `https://uagk9992.us-east.insforge.app/admin/v1` |
 | **Database** | `postgresql://postgres:***@uagk9992.us-east.database.insforge.app:5432/insforge` |
-| **Dashboard** | `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09` |
+| **Dashboard** | `https://insforge.dev/dashboard/project/b52410db-f5e7-4809-b433-53cb0c93da09` |
 | **App Deploy** | `https://uagk9992.insforge.site` |
+| **API Key** | `ik_fae6dd2d7b6ebc86d421ef50e499969b` |
+| **Anon Key** | `anon_7fc28fe2db8b48d19e385ae3639ac4436ba8901b5ce000e9f1b3682d3b0344ad` |
 
 ## ✅ Verificación
 
 Para verificar que la conexión funciona correctamente:
 
-1. Abre en el navegador: `https://api.uagk9992.insforge.app/health`
+1. Abre en el navegador: `https://uagk9992.us-east.insforge.app/health`
 2. Deberías recibir una respuesta JSON del servidor
 3. Si ves `ERR_NAME_NOT_RESOLVED` o `404`, prueba con diferentes formatos de URL
 
@@ -109,9 +111,9 @@ Para verificar que la conexión funciona correctamente:
 
 ### URLs de API (Backend)
 ```
-https://api.{app_key}.insforge.app
+https://{app_key}.{region}.insforge.app
 ```
-Ejemplo: `https://api.uagk9992.insforge.app`
+Ejemplo: `https://uagk9992.us-east.insforge.app`
 
 Se usa para:
 - REST API (`/rest/v1/...`)

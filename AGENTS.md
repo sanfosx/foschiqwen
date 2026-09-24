@@ -13,10 +13,13 @@ This is a TechBridge application deployed on InsForge. The project uses:
 ### Database
 - **Provider**: PostgreSQL via InsForge
 - **Connection**: `postgresql://postgres:***@uagk9992.us-east.database.insforge.app:5432/insforge?sslmode=require`
-- **REST API**: `https://api.uagk9992.insforge.app/rest/v1`
-- **Admin Key**: `uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU`
+- **REST API**: `https://uagk9992.us-east.insforge.app/rest/v1`
+- **API Key**: `ik_fae6dd2d7b6ebc86d421ef50e499969b`
+- **Anon Key**: `anon_7fc28fe2db8b48d19e385ae3639ac4436ba8901b5ce000e9f1b3682d3b0344ad`
 - **App Key**: `uagk9992`
 - **Region**: `us-east`
+- **Site URL**: `https://uagk9992.insforge.site`
+- **Dashboard**: `https://insforge.dev/dashboard/project/b52410db-f5e7-4809-b433-53cb0c93da09`
 
 ### Tables
 1. `blog_articles` - Blog posts with SEO, categories, tags

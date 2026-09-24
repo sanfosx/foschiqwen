@@ -9,8 +9,9 @@
  * Usage: node scripts/init-database.js
  */
 
-const INSFORGE_URL = 'https://api.uagk9992.insforge.app'
-const ADMIN_KEY = 'uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU'
+const INSFORGE_URL = 'https://uagk9992.us-east.insforge.app'
+const API_KEY = 'ik_fae6dd2d7b6ebc86d421ef50e499969b'
+const ANON_KEY = 'anon_7fc28fe2db8b48d19e385ae3639ac4436ba8901b5ce000e9f1b3682d3b0344ad'
 
 const SCHEMA_SQL = `
 -- Enable UUID extension
@@ -136,8 +137,8 @@ async function initializeDatabase() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${ADMIN_KEY}`,
-        'apikey': ADMIN_KEY,
+        'Authorization': `Bearer ${API_KEY}`,
+        'apikey': API_KEY,
       },
       body: JSON.stringify({ query: SCHEMA_SQL }),
     })
