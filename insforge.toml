@@ -14,8 +14,9 @@ output_directory = "dist"
 root_directory = "."
 
 [deployment.env]
-VITE_INSFORGE_URL = "https://api.uagk9992.insforge.app"
-VITE_INSFORGE_ANON_KEY = "uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU"
+VITE_INSFORGE_URL = "https://uagk9992.us-east.insforge.app"
+VITE_INSFORGE_API_KEY = "ik_fae6dd2d7b6ebc86d421ef50e499969b"
+VITE_INSFORGE_ANON_KEY = "anon_7fc28fe2db8b48d19e385ae3639ac4436ba8901b5ce000e9f1b3682d3b0344ad"
 
 [database]
 connection_string = "postgresql://postgres:7d792d53790355e52a5ce6e64a4fce67@uagk9992.us-east.database.insforge.app:5432/insforge?sslmode=require"

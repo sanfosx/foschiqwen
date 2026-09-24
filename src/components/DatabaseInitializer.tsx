@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Loader2, CheckCircle, XCircle, Database } from 'lucide-react'
-import { INSFORGE_BASE_URL, INSFORGE_ADMIN_KEY, INSFORGE_PROJECT_ID } from '../services/insforge'
+import { INSFORGE_BASE_URL, INSFORGE_API_KEY, INSFORGE_PROJECT_ID } from '../services/insforge'
 
 const SCHEMA_SQL = `
 -- Enable UUID extension
@@ -129,8 +129,8 @@ export default function DatabaseInitializer() {
     try {
       const response = await fetch(`${INSFORGE_BASE_URL}/rest/v1/blog_articles?select=id&limit=1`, {
         headers: {
-          'Authorization': `Bearer ${INSFORGE_ADMIN_KEY}`,
-          'apikey': INSFORGE_ADMIN_KEY,
+          'Authorization': `Bearer ${INSFORGE_API_KEY}`,
+          'apikey': INSFORGE_API_KEY,
         },
       })
 
@@ -152,8 +152,8 @@ export default function DatabaseInitializer() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${INSFORGE_ADMIN_KEY}`,
-          'apikey': INSFORGE_ADMIN_KEY,
+          'Authorization': `Bearer ${INSFORGE_API_KEY}`,
+          'apikey': INSFORGE_API_KEY,
         },
         body: JSON.stringify({ query: SCHEMA_SQL }),
       })
