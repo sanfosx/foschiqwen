@@ -34,7 +34,7 @@ npx @insforge/cli deployments deploy .
 Después del deploy:
 
 - **Aplicación**: `https://uagk9992.insforge.site`
-- **Dashboard**: `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09`
+- **Dashboard**: `https://insforge.dev/dashboard/project/b52410db-f5e7-4809-b433-53cb0c93da09`
 
 ## 📋 Checklist Pre-Deploy
 

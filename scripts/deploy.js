@@ -19,7 +19,7 @@ const PROJECT_ID = 'b52410db-f5e7-4809-b433-53cb0c93da09'
 const APP_KEY = 'uagk9992'
 const REGION = 'us-east'
 const API_KEY = 'uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU'
-const INSFORGE_URL = `https://${APP_KEY}.${REGION}.insforge.app`
+const INSFORGE_URL = `https://${APP_KEY}.insforge.app`
 
 console.log('🚀 TechBridge - Complete Deploy Script')
 console.log('======================================')

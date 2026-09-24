@@ -7,8 +7,7 @@ import { createClient } from '@insforge/sdk'
 
 const INSFORGE_PROJECT_ID = 'b52410db-f5e7-4809-b433-53cb0c93da09'
 const INSFORGE_APP_KEY = 'uagk9992'
-const INSFORGE_REGION = 'us-east'
-const INSFORGE_BASE_URL = `https://${INSFORGE_APP_KEY}.${INSFORGE_REGION}.insforge.app`
+const INSFORGE_BASE_URL = `https://${INSFORGE_APP_KEY}.insforge.app`
 
 // Admin API Key (from user-provided credentials)
 const INSFORGE_ADMIN_KEY = 'uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU'
@@ -19,5 +18,5 @@ const insforge = createClient({
   anonKey: INSFORGE_ADMIN_KEY,
 })
 
-export { insforge, INSFORGE_BASE_URL, INSFORGE_ADMIN_KEY, INSFORGE_PROJECT_ID, INSFORGE_APP_KEY, INSFORGE_REGION }
+export { insforge, INSFORGE_BASE_URL, INSFORGE_ADMIN_KEY, INSFORGE_PROJECT_ID, INSFORGE_APP_KEY }
 export default insforge

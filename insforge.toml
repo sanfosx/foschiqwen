@@ -14,7 +14,7 @@ output_directory = "dist"
 root_directory = "."
 
 [deployment.env]
-VITE_INSFORGE_URL = "https://uagk9992.us-east.insforge.app"
+VITE_INSFORGE_URL = "https://uagk9992.insforge.app"
 VITE_INSFORGE_ANON_KEY = "uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU"
 
 [database]

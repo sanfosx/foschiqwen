@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Database, CheckCircle, XCircle, Loader2, AlertTriangle, RefreshCw, Terminal, Copy, ExternalLink } from 'lucide-react'
 import { initializeDatabase } from '../services/backend'
-import { INSFORGE_BASE_URL, INSFORGE_PROJECT_ID, INSFORGE_APP_KEY, INSFORGE_REGION } from '../services/insforge'
+import { INSFORGE_BASE_URL, INSFORGE_PROJECT_ID, INSFORGE_APP_KEY } from '../services/insforge'
 
 interface DatabaseStatus {
   connected: boolean
@@ -195,7 +195,7 @@ export default function DatabaseSetup() {
                 {/* Links */}
                 <div className="flex flex-wrap gap-3 pt-2">
                   <a
-                    href={`https://app.insforge.dev/project/${INSFORGE_PROJECT_ID}`}
+                    href={`https://insforge.dev/dashboard/project/${INSFORGE_PROJECT_ID}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-emerald-600/20 border border-emerald-500/30 rounded-lg text-sm text-emerald-300 hover:bg-emerald-600/30 transition-all"
@@ -225,8 +225,8 @@ export default function DatabaseSetup() {
                 <p className="text-gray-300 font-mono text-xs">{INSFORGE_PROJECT_ID}</p>
               </div>
               <div>
-                <p className="text-gray-500 text-xs mb-1">App Key / Region</p>
-                <p className="text-gray-300 font-mono text-xs">{INSFORGE_APP_KEY}.{INSFORGE_REGION}</p>
+                <p className="text-gray-500 text-xs mb-1">App Key</p>
+                <p className="text-gray-300 font-mono text-xs">{INSFORGE_APP_KEY}</p>
               </div>
               <div>
                 <p className="text-gray-500 text-xs mb-1">API URL</p>

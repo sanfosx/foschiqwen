@@ -186,7 +186,7 @@ npx @insforge/cli login --user-api-key uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85f
 npx @insforge/cli link --project-id b52410db-f5e7-4809-b433-53cb0c93da09
 
 # 3. Set environment variables
-npx @insforge/cli deployments env set VITE_INSFORGE_URL https://uagk9992.us-east.insforge.app
+npx @insforge/cli deployments env set VITE_INSFORGE_URL https://uagk9992.insforge.app
 npx @insforge/cli deployments env set VITE_INSFORGE_ANON_KEY uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU
 
 # 4. Initialize database
@@ -202,7 +202,7 @@ npx @insforge/cli deployments deploy .
 ### URLs Post-Deploy
 
 - **Aplicación**: `https://uagk9992.insforge.site`
-- **Dashboard**: `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09`
+- **Dashboard**: `https://insforge.dev/dashboard/project/b52410db-f5e7-4809-b433-53cb0c93da09`
 
 ---
 
