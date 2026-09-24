@@ -47,7 +47,7 @@ npx @insforge/cli link --project-id b52410db-f5e7-4809-b433-53cb0c93da09
 
 ```bash
 # URL de tu proyecto InsForge (formato: https://{app_key}.{region}.insforge.app)
-npx @insforge/cli deployments env set VITE_INSFORGE_URL https://uagk9992.us-east.insforge.app
+npx @insforge/cli deployments env set VITE_INSFORGE_URL https://uagk9992.insforge.app
 
 # API Key para autenticación
 npx @insforge/cli deployments env set VITE_INSFORGE_ANON_KEY uak_Os6Sgh5_gXLyi_gKCp2S73JYe2TVI83wtm85fVzINdU
@@ -76,7 +76,7 @@ npx @insforge/cli deployments list
 Después del deploy, tu aplicación estará disponible en:
 
 - **URL Principal**: `https://uagk9992.insforge.site`
-- **Dashboard**: `https://app.insforge.dev/project/b52410db-f5e7-4809-b433-53cb0c93da09`
+- **Dashboard**: `https://insforge.dev/dashboard/project/b52410db-f5e7-4809-b433-53cb0c93da09`
 
 ## 🔧 Configuración Adicional
 
